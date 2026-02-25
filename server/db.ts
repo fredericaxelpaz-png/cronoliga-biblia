@@ -2,8 +2,10 @@ import Database from 'better-sqlite3';
 import path from 'path';
 import fs from 'fs';
 
-// Ensure the data directory exists
-const dataDir = path.join(process.cwd(), 'data');
+// Determine data directory based on environment
+const isVercel = process.env.VERCEL === '1';
+const dataDir = isVercel ? '/tmp' : path.join(process.cwd(), 'data');
+
 if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir);
 }

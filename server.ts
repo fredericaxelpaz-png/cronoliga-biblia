@@ -296,6 +296,8 @@ app.get('/auth/callback', async (req, res) => {
 });
 
 
+// ... (previous code)
+
 // --- Vite Middleware ---
 
 async function startServer() {
@@ -305,17 +307,26 @@ async function startServer() {
       appType: 'spa',
     });
     app.use(vite.middlewares);
-  } else {
-    // In production, serve static files from dist
-    app.use(express.static(path.join(__dirname, 'dist')));
-    app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+    
+    app.listen(PORT, '0.0.0.0', () => {
+      console.log(`Server running on http://localhost:${PORT}`);
     });
+  } else {
+    // In production (Vercel), we don't start the server here.
+    // The app is exported for serverless usage.
+    // But for local production build test:
+    if (require.main === module) {
+       app.use(express.static(path.join(__dirname, 'dist')));
+       app.get('*', (req, res) => {
+         res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+       });
+       app.listen(PORT, '0.0.0.0', () => {
+         console.log(`Server running on http://localhost:${PORT}`);
+       });
+    }
   }
-
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
 }
 
 startServer();
+
+export default app;
