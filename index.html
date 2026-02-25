@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guía Cronológica de la Biblia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Lora', 'serif'],
+              display: ['Playfair Display', 'serif'],
+            },
+            colors: {
+              sacred: {
+                50: '#FBF9F1', // Ivory/Cream
+                100: '#F5F1E6', // Light Parchment
+                200: '#EBE3D1', // Parchment
+                300: '#DCCB9F', // Light Gold
+                400: '#Cfb06d', // Gold
+                500: '#B89648', // Deep Gold (Primary)
+                600: '#967633',
+                700: '#755925',
+                800: '#58421F',
+                900: '#3E2F18', // Dark Brown Text
+              },
+              olive: {
+                50: '#F4F7F0',
+                100: '#E6EEDD',
+                200: '#CEDDB8',
+                300: '#B0C88D',
+                400: '#94B066',
+                500: '#789644', // Olive Green
+                600: '#5D7632',
+                700: '#455924',
+                800: '#303E1A',
+                900: '#1E2611',
+              },
+              stone: {
+                850: '#1c1917', // Warm dark background
+                900: '#0c0a09', // Darker warm background
+              }
+            },
+            backgroundImage: {
+              'parchment': "linear-gradient(to bottom right, #FDFBF7, #F5F1E6)",
+              'golden-glow': "linear-gradient(135deg, #FDFBF7 0%, #F2E8CF 100%)",
+              'sacred-gradient': "linear-gradient(135deg, #B89648 0%, #967633 100%)",
+              'dark-sacred': "linear-gradient(to bottom right, #1c1917, #0c0a09)",
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        background-color: #FDFBF7;
+        color: #3E2F18;
+      }
+      .dark body {
+        background-color: #0c0a09;
+        color: #EBE3D1;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
